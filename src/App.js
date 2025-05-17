@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState } from 'react';
 import './App.css';
+import Hello from './components/Hello';
+import CameraView from './components/CameraView';
 
 function App() {
+  const [showCamera, setShowCamera] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  const handleUserSubmit = (data) => {
+    console.log("User data received in App.js:", data);
+    setUserData(data);
+    setShowCamera(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!showCamera ? (
+        <Hello onSubmit={handleUserSubmit} />
+      ) : (
+        <CameraView userData={userData} />
+      )}
     </div>
   );
 }
