@@ -1,5 +1,6 @@
 # 1
 
+npm install
 npm start
 
 # 2
@@ -11,7 +12,7 @@ ngrok http 3000
 
 # 3
 
-you should see this in the output
+you should see something similar to this in the output
 
 https://bc40-2601-19e-8580-6530-24e0-a0a1-ebfd-58e5.ngrok-free.app -> http://localhost:3000 
 
